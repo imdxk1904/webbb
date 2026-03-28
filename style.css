@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* ===== RESET & BASE ===== */
+/* ================================================
+   RESET & BASE
+   ================================================ */
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +25,11 @@ body {
 
 hr { display: none; }
 
-/* ===== NAVBAR ===== */
+
+/* ================================================
+   HEADER - NAVBAR (thanh điều hướng trên cùng)
+   ================================================ */
+
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -36,6 +42,7 @@ hr { display: none; }
     box-shadow: 0 2px 16px rgba(255, 107, 0, 0.3);
 }
 
+/* --- Logo & Tên thương hiệu --- */
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -57,7 +64,7 @@ hr { display: none; }
     font-size: 18px;
 }
 
-/* Desktop menu */
+/* --- Menu desktop (Trang chủ, Sản phẩm, ...) --- */
 .navbar-menu {
     display: flex;
     align-items: center;
@@ -93,7 +100,7 @@ hr { display: none; }
     transition: transform 0.25s;
 }
 
-/* Search */
+/* --- Ô tìm kiếm trên navbar --- */
 .navbar-search {
     margin-left: auto;
     position: relative;
@@ -125,7 +132,7 @@ hr { display: none; }
     cursor: pointer; font-size: 14px;
 }
 
-/* Cart */
+/* --- Nút Giỏ hàng --- */
 .navbar-cart {
     margin-left: 12px;
     background: var(--text);
@@ -147,7 +154,7 @@ hr { display: none; }
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Hamburger */
+/* --- Nút hamburger (chỉ hiện trên mobile) --- */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -167,7 +174,11 @@ hr { display: none; }
     transition: transform 0.25s, opacity 0.25s;
 }
 
-/* ===== CATEGORY NAV ===== */
+
+/* ================================================
+   HEADER - CATEGORY NAV (thanh danh mục bên dưới navbar)
+   ================================================ */
+
 body > nav {
     position: fixed;
     top: 64px; left: 0;
@@ -199,10 +210,9 @@ body > nav a {
 }
 
 body > nav a:hover { color: var(--primary); }
-
 body > nav a.active { color: var(--primary); }
 
-/* ===== CATEGORY DROPDOWN ===== */
+/* --- Dropdown danh mục --- */
 body > nav li.has-dropdown {
     position: relative;
 }
@@ -240,7 +250,12 @@ body > nav li.has-dropdown .dropdown a:hover {
     color: var(--primary);
 }
 
-/* ===== MOBILE DRAWER ===== */
+
+/* ================================================
+   HEADER - MOBILE DRAWER (menu kéo ra trên điện thoại)
+   ================================================ */
+
+/* --- Lớp phủ tối khi mở drawer --- */
 .mobile-overlay {
     display: none;
     position: fixed;
@@ -251,6 +266,7 @@ body > nav li.has-dropdown .dropdown a:hover {
     transition: opacity 0.3s;
 }
 
+/* --- Panel drawer từ phải kéo ra --- */
 .mobile-drawer {
     position: fixed;
     top: 0; right: 0;
@@ -278,6 +294,7 @@ body > nav li.has-dropdown .dropdown a:hover {
     font-size: 18px;
     display: flex; align-items: center; gap: 8px;
 }
+
 .drawer-close {
     background: rgba(255, 255, 255, 0.2);
     border: none;
@@ -292,6 +309,30 @@ body > nav li.has-dropdown .dropdown a:hover {
 
 .drawer-close:hover { background: rgba(255, 255, 255, 0.15); }
 
+/* --- Ô tìm kiếm trong drawer --- */
+.drawer-search {
+    position: relative;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.drawer-search input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 9px 36px 9px 14px;
+    color: #fff;
+    font-size: 14px;
+    font-family: sans-serif;
+    outline: none;
+}
+
+.drawer-search input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* --- Danh sách menu trong drawer --- */
 .drawer-menu {
     list-style: none;
     padding: 12px 0;
@@ -315,14 +356,18 @@ body > nav li.has-dropdown .dropdown a:hover {
     color: var(--text);
 }
 
-/* Drawer open state */
+/* --- Trạng thái khi drawer đang mở --- */
 body.drawer-open .mobile-overlay { display: block; opacity: 1; }
 body.drawer-open .mobile-drawer { transform: translateX(0); }
 body.drawer-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 body.drawer-open .hamburger span:nth-child(2) { opacity: 0; }
 body.drawer-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ===== SECTIONS ===== */
+
+/* ================================================
+   NỘI DUNG CHÍNH - SECTIONS & SẢN PHẨM
+   ================================================ */
+
 section {
     max-width: 1200px;
     margin: 60px auto;
@@ -346,7 +391,7 @@ section[id]::before {
     visibility: hidden;
 }
 
-/* ===== PRODUCT GRID & CARD ===== */
+/* --- Lưới sản phẩm --- */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -354,6 +399,7 @@ section[id]::before {
     margin-top: 32px;
 }
 
+/* --- Card sản phẩm --- */
 .product-card {
     background: #fff;
     border-radius: 14px;
@@ -382,15 +428,33 @@ section[id]::before {
 
 .product-card p { color: #555; margin-bottom: 6px; }
 .product-card p:last-child { font-weight: bold; color: #000; }
-.price { font-weight: bold; color: #000 !important; }
 
-/* ===== FOOTER ===== */
+/* --- Giá sản phẩm --- */
+.price {
+    color: #000;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #aaa !important;
+    font-size: 13px;
+    font-weight: 400 !important;
+}
+
+
+/* ================================================
+   FOOTER
+   ================================================ */
+
 .footer {
     background: #ff6b00;
     padding-top: 30px;
     margin-top: 60px;
 }
 
+/* --- 3 cột trong footer --- */
 .footer-container {
     width: 90%;
     margin: auto;
@@ -420,13 +484,7 @@ section[id]::before {
     display: block;
 }
 
-.footer-bottom {
-    text-align: center;
-    padding: 16px;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    margin-top: 20px;
-}
-
+/* --- Thông tin liên hệ (icon + text) --- */
 .footer-info {
     display: flex;
     align-items: center;
@@ -440,6 +498,7 @@ section[id]::before {
     height: 18px;
 }
 
+/* --- Icon mạng xã hội --- */
 .social-icons {
     display: flex;
     gap: 12px;
@@ -452,7 +511,19 @@ section[id]::before {
     height: 32px;
 }
 
-/* ===== RESPONSIVE ===== */
+/* --- Dòng copyright dưới cùng --- */
+.footer-bottom {
+    text-align: center;
+    padding: 16px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    margin-top: 20px;
+}
+
+
+/* ================================================
+   RESPONSIVE - Màn hình tablet (≤ 900px)
+   ================================================ */
+
 @media (max-width: 900px) {
     .navbar-menu,
     .navbar-search,
@@ -460,6 +531,11 @@ section[id]::before {
 
     .hamburger { display: flex; }
 }
+
+
+/* ================================================
+   RESPONSIVE - Màn hình mobile (≤ 768px)
+   ================================================ */
 
 @media (max-width: 768px) {
     .product-grid {
@@ -509,46 +585,13 @@ section[id]::before {
     }
 }
 
+
+/* ================================================
+   RESPONSIVE - Màn hình nhỏ (≤ 480px)
+   ================================================ */
+
 @media (max-width: 480px) {
     .product-grid {
         grid-template-columns: 1fr;
     }
-}
-/* Search trong drawer */
-.drawer-search {
-    position: relative;
-    padding: 12px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.drawer-search input {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    padding: 9px 36px 9px 14px;
-    color: #fff;
-    font-size: 14px;
-    font-family: sans-serif;
-    outline: none;
-}
-
-.drawer-search input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-.price {
-    color: #ff6b00;
-    font-weight: 700;
-}
-.price {
-    color: #000;
-    font-weight: 700;
-    font-size: 16px;
-}
-
-.old-price {
-    text-decoration: line-through;
-    color: #aaa !important;
-    font-size: 13px;
-    font-weight: 400 !important;
 }
