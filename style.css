@@ -592,7 +592,7 @@ section[id]::before {
 
 @media (max-width: 480px) {
     .product-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
    .product-card img {
         height: 110px;
