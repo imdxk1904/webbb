@@ -594,4 +594,11 @@ section[id]::before {
     .product-grid {
         grid-template-columns: 1fr;
     }
+   .product-card img {
+        height: 110px;
+    }
+
+    .product-card h3 {
+        font-size: 13px;
+    }
 }
